@@ -6,7 +6,7 @@ You can use this repository as a template to create your own Wipple interpreter 
 
 - Create your own repository from this template
 - Build your plugin in `src/lib.rs`
-- Run `build.sh` to build a `<platform>.wplplugin` file
+- Run `build.sh` to build a `.wplplugin` file
 - Upload the plugin file somewhere accessible
 
 To use your plugin in a Wipple project, add it to your `project.wpl`:
