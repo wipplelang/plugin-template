@@ -1,4 +1,4 @@
-plugin.wplplugin
+*.wplplugin
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,linux,rust,code
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,rust,code
