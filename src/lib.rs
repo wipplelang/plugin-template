@@ -1,5 +1,5 @@
 use wipple::*;
-use wipple_plugin_loader::wipple_plugin;
+use wipple_plugins::wipple_plugin;
 
 wipple_plugin!(|env: &EnvironmentRef, stack: &Stack| {
     Ok(Value::of(Text {

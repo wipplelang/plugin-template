@@ -8,4 +8,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wipple = { git = "https://github.com/wipplelang/wipple" }
-wipple_plugin_loader = { git = "https://github.com/wipplelang/plugin-loader" }
+wipple_plugins = { git = "https://github.com/wipplelang/wipple" }
