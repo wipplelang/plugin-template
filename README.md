@@ -13,9 +13,6 @@ To use your plugin in a Wipple project, add it to your `project.wpl`:
 
 ```wipple
 dependencies : {
-    -- Wipple will append the `.wplplugin` file corresponding to the current
-    -- platform to this URL. For example, on macOS the URL will become
-    -- "https://mysite.com/my-plugin/x86_64-apple-darwin.wplplugin"
-    my-plugin : plugin "https://mysite.com/my-plugin"
+    my-plugin : plugin (url (format "https://example.com/my-plugin/_.wplplugin" host))
 }
 ```
