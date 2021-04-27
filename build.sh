@@ -2,10 +2,15 @@
 
 set -e
 
-host="$(rustc --version --verbose | grep host: | cut -c 7-)"
-
 cargo build --release
 
-for f in $(find target/release -maxdepth 1 -name libplugin.dylib -o -name libplugin.so); do
-    cp $f "$host.wplplugin"
-done
+if [ -f target/release/libplugin.so ]; then
+    cp target/release/libplugin.so project/plugin.wplplugin
+elif [ -f target/release/libplugin.dylib ]; then
+    cp target/release/libplugin.dylib project/plugin.wplplugin
+else
+    echo "Error: Target not supported"
+    exit 1
+fi
+
+zip -rq plugin.zip project

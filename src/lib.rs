@@ -2,7 +2,7 @@ use wipple::*;
 use wipple_plugins::wipple_plugin;
 
 #[wipple_plugin]
-pub fn plugin(env: &EnvironmentRef, stack: &Stack) -> Result {
+pub fn plugin(env: &EnvironmentRef, _stack: &Stack) -> Result {
     env.borrow_mut()
         .set_variable("hello", Value::of(Text::new("Hello, world!")));
 

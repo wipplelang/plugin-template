@@ -5,14 +5,34 @@ You can use this repository as a template to create your own Wipple interpreter 
 ## Usage
 
 - Create your own repository from this template
-- Build your plugin in `src/lib.rs`
+- Develop your plugin in `src/lib.rs`
 - Run `build.sh` to build a `.wplplugin` file
-- Upload the plugin file somewhere accessible
 
-To use your plugin in a Wipple project, add it to your `project.wpl`:
+To use your plugin in a Wipple project, upload the generated `plugin.zip` somewhere and add it as a dependency to your `project.wpl`:
 
 ```wipple
 dependencies : {
-    my-plugin : plugin (url (format "https://example.com/my-plugin/_.wplplugin" host))
+    my-plugin : url "https://example.com/plugin.zip"
 }
+```
+
+Alternatively, you can use the generated `plugin.wplplugin` directly using the `plugin!` function:
+
+```wipple
+plugin! "path/to/plugin.wplplugin"
+```
+
+The plugin will be loaded directly into the current scope, so make sure to wrap it in a module if needed:
+
+```wipple
+-- In src/lib.rs:
+--
+-- env.borrow_mut()
+--     .set_variable("hello", Value::of(Text::new("Hello, world")));
+
+plugin : {
+    plugin! "path/to/plugin.wplplugin"
+}
+
+plugin hello -- Hello, world
 ```
